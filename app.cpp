@@ -6,6 +6,8 @@
 
 struct User {
     std::string username;
+    std::string email;
+    std::string phoneNumber;
     std::string password;
 };
 
@@ -22,6 +24,10 @@ public:
         User newUser;
         std::cout << "Enter a new username: ";
         std::cin >> newUser.username;
+        std::cout << "Enter a new email: ";
+        std::cin >> newUser.email;
+        std::cout << "Enter a new number: ";
+        std::cin >> newUser.phoneNumber; // Fix: Use phoneNumber instead of number
 
         // Check if the username already exists
         if (userExists(newUser.username)) {
@@ -69,8 +75,8 @@ private:
 
         if (file.is_open()) {
             User user;
-            while (file >> user.username >> user.password) {
-                users.push_back(user);
+            while (file >> user.username >> user.email >> user.phoneNumber >> user.password) {
+                users.push_back(user); // Fix: Use push_back with user, not users
             }
 
             file.close();
@@ -82,7 +88,7 @@ private:
 
         if (file.is_open()) {
             for (const auto& user : users) {
-                file << user.username << " " << user.password << "\n";
+                file << user.username << " " << user.email << " " << user.phoneNumber << " " << user.password << "\n";
             }
 
             file.close();
