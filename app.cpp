@@ -20,6 +20,8 @@ public:
         loadUsersFromFile(); // Load existing users from file
     }
 
+
+//signup 
     void signUp() {
         User newUser;
         std::cout << "Enter a new username: ";
@@ -43,7 +45,7 @@ public:
 
         std::cout << "Sign-up successful. You can now sign in.\n";
     }
-
+//signin
     void signIn() {
         std::string username, password;
         std::cout << "Enter your username: ";
